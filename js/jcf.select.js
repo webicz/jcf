@@ -359,7 +359,7 @@ jcf.addModule(function($, window) {
 			}
 
 			// create options list if not created
-			if (!this.dropdown) {
+			if (!this.dropdown || this.options.useCustomScroll) {
 				this.createDropdown();
 			}
 
