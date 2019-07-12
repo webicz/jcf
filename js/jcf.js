@@ -117,7 +117,7 @@
 				setup: function() {
 					var self = this;
 					$.each(eventHandlers, function(index, fallbackEvent) {
-						if (self.addEventListener) self.addEventListener(fallbackEvent, fixEvent, false);
+						if (self.addEventListener) self.addEventListener(fallbackEvent, fixEvent, typeof supportsPassive !== 'undefined' && supportsPassive ? { passive: true } : false);
 						else self['on' + fallbackEvent] = fixEvent;
 					});
 				},
@@ -189,7 +189,7 @@
 			setup: function() {
 				var self = this;
 				$.each(wheelEvents, function(index, fallbackEvent) {
-					if (self.addEventListener) self.addEventListener(fallbackEvent, fixEvent, false);
+					if (self.addEventListener) self.addEventListener(fallbackEvent, fixEvent, typeof supportsPassive !== 'undefined' && supportsPassive ? { passive: true } : false);
 					else self['on' + fallbackEvent] = fixEvent;
 				});
 			},
